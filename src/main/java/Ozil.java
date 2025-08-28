@@ -90,6 +90,12 @@ public class Ozil {
         Messages.line();
     }
 
+    private void deleteTask(int tasknum) {
+        Task temp = this.tasks.get(tasknum - 1);
+        this.tasks.remove(tasknum - 1);
+        Messages.printTaskDeleteMessage(temp);
+    }
+
     private void printlist() {
         if (this.tasks.isEmpty()) {
             Messages.line();
@@ -129,6 +135,17 @@ public class Ozil {
                     throw new OzilException(ErrorMessages.wrongMarkNumber());
                 }
                 this.unmarkTask(tasknum);
+            } else {
+                throw new OzilException(ErrorMessages.wrongMarkNumber());
+            }
+            break;
+        case "delete":
+            if (sections.length > 1) {
+                int tasknum = Integer.parseInt(sections[1]);
+                if (tasknum > this.tasks.size()) {
+                    throw new OzilException(ErrorMessages.wrongMarkNumber());
+                }
+                this.deleteTask(tasknum);
             } else {
                 throw new OzilException(ErrorMessages.wrongMarkNumber());
             }

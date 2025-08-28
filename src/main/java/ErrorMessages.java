@@ -19,7 +19,7 @@ public class ErrorMessages {
     }
 
     /**
-     * Error message for mark not having a number
+     * Error message for when selected task does not exist
      * @return
      */
     public static String wrongMarkNumber() {

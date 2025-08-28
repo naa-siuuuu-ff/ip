@@ -49,6 +49,14 @@ public class Messages {
         Messages.line();
     }
 
+    public static void printTaskDeleteMessage(Task task) {
+        Messages.line();
+        System.out.print("Understood. I have deleted the following task:\n");
+        System.out.println("  " + task.toString());
+        Messages.printNumberOfTasks();
+        Messages.line();
+    }
+
     /**
      * Prints the number of tasks in chatbot's list
      * @param tasks Tasklist in chatbot
