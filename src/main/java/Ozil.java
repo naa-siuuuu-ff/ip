@@ -36,13 +36,13 @@ public class Ozil {
         Messages.printTaskAddMessage(task, this.tasks);
     }
 
-    private void addEventTaskToList(String userinput) {
+    private void addEventTaskToList(String userinput) throws OzilException {
+        if (userinput.trim().startsWith("/from")) {
+            throw new OzilException(ErrorMessages.taskDescriptionError("event"));
+        }
         String[] parts = userinput.split("/from|/to");
         if (parts.length < 3) {
-            System.out.println("Your event format is not it. Event deatils, start time, or end time");
-            System.out.println("ARE MISSING");
-            System.out.println("Use: event <description> /from <start> /to <end>");
-            return;
+            throw new OzilException(ErrorMessages.eventTaskTimeError());
         }
         String description = parts[0].trim();
         String startTime = parts[1].trim();
@@ -52,12 +52,13 @@ public class Ozil {
         Messages.printTaskAddMessage(task, this.tasks);
     }
 
-    private void addDeadlineTaskToList(String userinput) {
+    private void addDeadlineTaskToList(String userinput) throws OzilException {
+        if (userinput.trim().startsWith("/by")) {
+            throw new OzilException(ErrorMessages.taskDescriptionError("deadline"));
+        }
         String[] parts = userinput.trim().split("/by", 2);
         if (parts.length < 2) {
-            System.out.println("Your deadline format is not it. Task details or deadline cannot be missing");
-            System.out.println("Use: deadline <description> /by <time>");
-            return ;
+            throw new OzilException(ErrorMessages.deadlineTaskTimeError());
         }
         String description = parts[0].trim();
         String deadline = parts[1];
@@ -90,43 +91,67 @@ public class Ozil {
     }
 
     private void printlist() {
-        String res = "____________________________________________________________\n"
-                + "Here are the tasks in your list:\n";
-       for (int i = 0; i < this.tasks.size(); i++) {
-           res += (i + 1) + ". " + this.tasks.get(i).toString() + "\n";
-       }
-        res += "____________________________________________________________\n";
-        System.out.println(res);
+        if (this.tasks.isEmpty()) {
+            Messages.line();
+            System.out.println("You have no tasks. You are a free agent :)");
+            Messages.line();
+        } else {
+            String res = "____________________________________________________________\n"
+                    + "Here are the tasks in your list:\n";
+            for (int i = 0; i < this.tasks.size(); i++) {
+                res += (i + 1) + ". " + this.tasks.get(i).toString() + "\n";
+            }
+            res += "____________________________________________________________\n";
+            System.out.println(res);
+        }
     }
 
-    private void inputHandler(String input) {
+    private void inputHandler(String input) throws OzilException {
         String[] sections = input.split("\\s+", 2);
         String command = sections[0].toLowerCase();
 
         switch (command) {
         case "mark":
             if (sections.length > 1) {
-                this.markTask(Integer.parseInt(sections[1]));
+                int tasknum = Integer.parseInt(sections[1]);
+                if (tasknum > this.tasks.size()) {
+                    throw new OzilException(ErrorMessages.wrongMarkNumber());
+                }
+                this.markTask(tasknum);
+            } else {
+                throw new OzilException(ErrorMessages.wrongMarkNumber());
             }
             break;
         case "unmark":
             if (sections.length > 1) {
-                this.unmarkTask(Integer.parseInt(sections[1]));
+                int tasknum = Integer.parseInt(sections[1]);
+                if (tasknum > this.tasks.size()) {
+                    throw new OzilException(ErrorMessages.wrongMarkNumber());
+                }
+                this.unmarkTask(tasknum);
+            } else {
+                throw new OzilException(ErrorMessages.wrongMarkNumber());
             }
             break;
         case "todo":
             if (sections.length > 1) {
                 this.addTodoTaskToList(sections[1]);
+            } else {
+                throw new OzilException(ErrorMessages.taskDescriptionError("todo"));
             }
             break;
         case "deadline":
             if (sections.length > 1) {
                 this.addDeadlineTaskToList(sections[1]);
+            } else {
+                throw new OzilException(ErrorMessages.taskDescriptionError("deadline"));
             }
             break;
         case "event":
             if (sections.length > 1) {
                 this.addEventTaskToList(sections[1]);
+            } else {
+                throw new OzilException(ErrorMessages.taskDescriptionError("event"));
             }
             break;
         case "list":
@@ -137,7 +162,7 @@ public class Ozil {
             this.isOpen = false;
             break;
         default:
-            this.addTaskToList(input);
+            throw new OzilException(ErrorMessages.nonsenseError());
         }
 
 
@@ -150,8 +175,12 @@ public class Ozil {
         Messages.intro();
 
         while (currentOzil.isOpen) {
-            String input = scanner.nextLine().trim();
-            currentOzil.inputHandler(input);
+            try {
+                String input = scanner.nextLine().trim();
+                currentOzil.inputHandler(input);
+            } catch (OzilException e) {
+                System.out.print(e.getMessage());
+            }
         }
 
         scanner.close();

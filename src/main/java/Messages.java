@@ -8,6 +8,12 @@ public class Messages {
      * Prints intro message of chatbot.
      */
     public static void intro() {
+        Messages.line();
+        System.out.print("  ___      _ _        _  ___  \n" +
+                " / _ \\ ___(_) |      / |/ _ \\ \n" +
+                "| | | |_  / | |      | | | | |\n" +
+                "| |_| |/ /| | |      | | |_| |\n" +
+                " \\___//___|_|_|      |_|\\___/ \n");
         System.out.println( "____________________________________________________________\n"
                 + "Hello! I'm Ozil, your personal assist machine!\n"
                 + "How may I assist you?\n"
@@ -50,4 +56,5 @@ public class Messages {
     public static void printNumberOfTasks(ArrayList<? extends Task> tasks) {
         System.out.println("My boi Benzi, you now have " + tasks.size() + " tasks.");
     }
+
 }
