@@ -1,0 +1,14 @@
+todo
+todo dinner
+
+deadline
+deadline dinner with Yan Jie
+deadline dinner with Yan Jie /by tonight
+event
+event meet up with JC friends
+event meet up with JC friends /from Monday 4pm /to Monday 6pm
+list
+mark 2
+unmark 2
+mark 4
+bye

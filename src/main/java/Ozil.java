@@ -61,7 +61,7 @@ public class Ozil {
             throw new OzilException(ErrorMessages.deadlineTaskTimeError());
         }
         String description = parts[0].trim();
-        String deadline = parts[1];
+        String deadline = parts[1].trim();
         DeadlineTask task = new DeadlineTask(description, deadline);
         this.tasks.add(task);
         Messages.printTaskAddMessage(task, this.tasks);
@@ -72,7 +72,7 @@ public class Ozil {
         temp.markAsDone();
         String res = "____________________________________________________________\n"
                 + "Ok! I have marked this task as completed:\n"
-                + temp.toString()
+                + temp.toString() + "\n"
                 + "____________________________________________________________\n";
         this.tasks.set(tasknum - 1, temp);
         System.out.println(res);
@@ -83,7 +83,7 @@ public class Ozil {
         Task temp = this.tasks.get(tasknum - 1);
         temp.markAsUndone();
         String res = "Task has been marked as incomplete:\n"
-                + temp.toString() + "\n";
+                + temp.toString();
         this.tasks.set(tasknum - 1, temp);
         Messages.line();
         System.out.println(res);

@@ -11,7 +11,7 @@ public class ErrorMessages {
                 "|__ \\ | |\n" +
                 "  / / | |\n" +
                 " |_||_|_|\n" +
-                " (_)(_|_)";
+                " (_)(_|_)\n";
     }
 
     private static String line() {
