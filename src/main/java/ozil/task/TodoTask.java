@@ -1,7 +1,9 @@
+package ozil.task;
+
 /**
 * Todotasks that are an extension of tasks
 */
-public class TodoTask extends Task{
+public class TodoTask extends Task {
     /**
      * creates a new Todo task.
      * @param description Description of the task.

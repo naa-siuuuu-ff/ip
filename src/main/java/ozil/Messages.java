@@ -1,4 +1,6 @@
-import java.util.ArrayList;
+package ozil;
+
+import ozil.task.Task;
 
 /**
 * Static class, containing a lot of the commonly displayed messages in Ozil chatbot
@@ -41,28 +43,36 @@ public class Messages {
      * Prints out the task added message.
      * @param task Task that just has been added.
      */
-    public static void printTaskAddMessage(Task task, ArrayList<? extends Task> taskList) {
+    public static void printTaskAddMessage(Task task, int numberOfTasks) {
         Messages.line();
         System.out.println("Your task has been added to my records:");
         System.out.println(" " + task.toString());
-        Messages.printNumberOfTasks(taskList);
+        Messages.printNumberOfTasks(numberOfTasks);
         Messages.line();
     }
 
-    public static void printTaskDeleteMessage(Task task) {
+    public static void printTaskDeleteMessage(Task task, int numberOfTasks) {
         Messages.line();
         System.out.print("Understood. I have deleted the following task:\n");
         System.out.println("  " + task.toString());
-        Messages.printNumberOfTasks();
+        Messages.printNumberOfTasks(numberOfTasks);
         Messages.line();
     }
 
     /**
      * Prints the number of tasks in chatbot's list
-     * @param tasks Tasklist in chatbot
+     * @param numberOfTasks Number of tasks in current chatbot
      */
-    public static void printNumberOfTasks(ArrayList<? extends Task> tasks) {
-        System.out.println("My boi Benzi, you now have " + tasks.size() + " tasks.");
+    public static void printNumberOfTasks(int numberOfTasks) {
+        System.out.println("My boi Benzi, you now have " + numberOfTasks + " tasks.");
+    }
+
+    /**
+     * Allows the user to be able to view all the currently stored tasks
+     * @param tasks the tasklist of the current chatbot
+     */
+    public static void printTaskList(TaskList tasks) {
+        tasks.printlist();
     }
 
 }

@@ -1,9 +1,11 @@
+package ozil.task;
+
 /**
 * Events that are also an extension of tasks
 * @param startTime The Starting time of the event.
 * @param endTime The ending time of the event.
 */
-public class EventTask extends Task{
+public class EventTask extends Task {
     private String startTime;
     private String endTime;
 
@@ -21,7 +23,7 @@ public class EventTask extends Task{
 
     @Override
     public String toString() {
-        return "[E] " + super.toString() + "(from: " + this.startTime + " to: "
+        return "[E] " + super.toString() + " (from: " + this.startTime + " to: "
                 + this.endTime + ")";
     }
 }

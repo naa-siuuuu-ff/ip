@@ -1,3 +1,5 @@
+package ozil;
+
 /**
  * Static class, containing a lot of the commonly displayed ERROR messages in Ozil chatbot
  */
@@ -6,12 +8,23 @@ public class ErrorMessages {
      * Returns error logo.
      * @return Returns error logo
      */
-    private static String errorLogo() {
+    public static String errorLogo() {
         return " ___ _ _ \n" +
                 "|__ \\ | |\n" +
                 "  / / | |\n" +
                 " |_||_|_|\n" +
                 " (_)(_|_)\n";
+    }
+
+    /**
+     * Returns an error message with the error logo.
+     * @param errorMessage Message telling the user their mistake.
+     * @return
+     */
+    public static String errorMessage(String errorMessage) {
+        return ErrorMessages.errorLogo() + "\n" + ErrorMessages.line() +
+                "\n" + errorMessage;
+
     }
 
     private static String line() {

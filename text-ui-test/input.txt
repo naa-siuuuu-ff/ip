@@ -1,14 +1,11 @@
 todo
-todo dinner
-
-deadline
-deadline dinner with Yan Jie
-deadline dinner with Yan Jie /by tonight
-event
-event meet up with JC friends
-event meet up with JC friends /from Monday 4pm /to Monday 6pm
+deadline submit homework
+todo touch people
+deadline submit homework /by friday 2pm
+event dinner with speed demons /from friday 2pm /to friday 6pm
+todo touch men
 list
 mark 2
 unmark 2
-mark 4
+mark 500
 bye

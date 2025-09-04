@@ -1,3 +1,5 @@
+package ozil.task;
+
 /**
 * Task class for basic tasks that can be added by users
 * @param description Description of the task
