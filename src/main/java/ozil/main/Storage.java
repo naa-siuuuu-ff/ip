@@ -19,8 +19,8 @@ public class Storage {
         this.filePath = filePath;
     }
 
-    public ArrayList<? extends Task> loadStoredTasks() throws OzilException {
-        ArrayList<Task> tasks = new ArrayList<>();
+    public TaskList loadStoredTasks() throws OzilException {
+        TaskList tasks = new TaskList();
         try {
             File file = new File(filePath);
 
@@ -54,30 +54,31 @@ public class Storage {
                     task.markAsDone();
                 }
 
-                tasks.add(task);
+                tasks.addTaskToList(task);
             }
+            s.close();
 
-            } catch(FileNotFoundException e){
-                throw new OzilException(ErrorMessages.errorMessage("An error occurred while saving: " +
-                        e));
-            }
+        } catch(FileNotFoundException e){
+            throw new OzilException(ErrorMessages.errorMessage("An error occurred while saving: " +
+                    e.getMessage()));
+        }
 
-            return tasks;
+        return tasks;
     }
 
-        public void save(ArrayList < Task > taskList) throws OzilException {
+        public void save(TaskList taskList) throws OzilException {
             try {
                 File file = new File(this.filePath);
                 file.getParentFile().mkdirs();
-                FileWriter fileWriter = new FileWriter(file);
-                for (Task task : taskList) {
-                    fileWriter.append(task.convertToStorageFormat());
+                FileWriter fileWriter = new FileWriter(file, true);
+                for (int i = 1; i <= taskList.getNumberOfTasks(); i++) {
+                    fileWriter.append(taskList.getTask(i).convertToStorageFormat());
                     fileWriter.append("\n");
                 }
                 fileWriter.close();
             } catch (IOException e) {
                 throw new OzilException(ErrorMessages.errorMessage("An error occurred while saving: " +
-                        e));
+                        e.getMessage()));
             }
         }
     }

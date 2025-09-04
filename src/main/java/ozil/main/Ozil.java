@@ -7,20 +7,27 @@ import java.util.Scanner;
 
 /**
 * This is the chatbot Ozil's main class, that runs the chatbot
-* @param tasks Tasks added by the user
-* @param isOpen boolean to see whether the chatbot is still running
 */
 public class Ozil {
     private TaskList tasks;
-    private Storage storage
-    private static final String filePath = "data/tasks.txt";
+    private Storage storage;
+    private static final String FILEPATH = "data/tasks.txt";
 
     /**
      * Constructor to create a new instance of the chatbot
      */
-    public Ozil() {
-        this.tasks = new TaskList();
-        this.storage = new Storage(filePath);
+    public Ozil() throws OzilException{
+        this.storage = new Storage(FILEPATH);
+
+        try {
+            this.tasks = storage.loadStoredTasks();
+        } catch (OzilException e) {
+            throw new OzilException(e.getMessage());
+        }
+    }
+
+    public TaskList getTaskList() {
+        return this.tasks;
     }
 
     private static void echo(String userinput) {
@@ -29,7 +36,7 @@ public class Ozil {
         Messages.line();
     }
 
-    public void run() {
+    public void run() throws OzilException {
         Scanner scanner = new Scanner(System.in);
 
         Messages.intro();
@@ -46,11 +53,17 @@ public class Ozil {
             }
         }
 
+        this.storage.save(this.getTaskList());
+
         scanner.close();
     }
 
     public static void main(String[] args) {
-        Ozil currentOzil = new Ozil();
-        currentOzil.run();
+        try {
+            Ozil currentOzil = new Ozil();
+            currentOzil.run();
+        } catch (OzilException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

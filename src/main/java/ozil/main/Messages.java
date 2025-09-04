@@ -66,13 +66,4 @@ public class Messages {
     public static void printNumberOfTasks(int numberOfTasks) {
         System.out.println("My boi Benzi, you now have " + numberOfTasks + " tasks.");
     }
-
-    /**
-     * Allows the user to be able to view all the currently stored tasks
-     * @param tasks the tasklist of the current chatbot
-     */
-    public static void printTaskList(TaskList tasks) {
-        tasks.printlist();
-    }
-
 }

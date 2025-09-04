@@ -1,0 +1,4 @@
+T | 0 | work 
+E | 0 | sleep | 2pm | 3pm 
+T | 0 | work  
+E | 0 | sleep | 2pm | 3pm  

@@ -2,7 +2,6 @@ package ozil.task;
 
 /**
 * Deadline tasks are an extension of tasks, containing a deadline
-* @param deadline Deadline of the task
 */
 public class DeadlineTask extends Task {
     private String deadline;
