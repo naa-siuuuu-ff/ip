@@ -1,5 +1,7 @@
 package ozil.main;
 
-public class Storage {
+import java.io.File;
 
+public class Storage {
+    private String filePath;
 }
