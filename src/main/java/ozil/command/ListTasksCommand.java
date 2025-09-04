@@ -1,4 +1,6 @@
-package ozil;
+package ozil.command;
+
+import ozil.main.TaskList;
 
 public class ListTasksCommand extends Command {
     private String userInput;

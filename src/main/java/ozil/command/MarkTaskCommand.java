@@ -1,9 +1,14 @@
-package ozil;
+package ozil.command;
 
-public class UnmarkTaskCommand extends Command{
+import ozil.exception.ErrorMessages;
+import ozil.main.Messages;
+import ozil.exception.OzilException;
+import ozil.main.TaskList;
+
+public class MarkTaskCommand extends Command {
     private int taskNumber;
 
-    public UnmarkTaskCommand(String userInput) throws OzilException {
+    public MarkTaskCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
@@ -16,7 +21,7 @@ public class UnmarkTaskCommand extends Command{
         if (this.taskNumber > tasks.getNumberOfTasks()) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
         }
-        tasks.markTaskAsUndone(this.taskNumber);
+        tasks.markTaskAsDone(this.taskNumber);
         Messages.line();
         System.out.println("Ok! I have marked this task as completed:\n");
         System.out.println(tasks.getTask(this.taskNumber).toString());

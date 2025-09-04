@@ -1,8 +1,12 @@
-package ozil;
+package ozil.command;
 
-public class TerminatingCommand extends Command{
+import ozil.exception.ErrorMessages;
+import ozil.main.Messages;
+import ozil.exception.OzilException;
 
-    public TerminatingCommand(String userInput) throws OzilException{
+public class TerminatingCommand extends Command {
+
+    public TerminatingCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length > 1) {
             throw new OzilException(ErrorMessages.errorMessage("You cannot tell me to go, \n" +

@@ -1,4 +1,4 @@
-package ozil;
+package ozil.exception;
 
 /**
  * Static class, containing a lot of the commonly displayed ERROR messages in Ozil chatbot

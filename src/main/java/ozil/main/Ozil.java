@@ -1,6 +1,7 @@
-package ozil;
+package ozil.main;
 
-import ozil.task.Task;
+import ozil.command.Command;
+import ozil.exception.OzilException;
 
 import java.util.Scanner;
 

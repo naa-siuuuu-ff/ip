@@ -1,13 +1,17 @@
-package ozil;
+package ozil.command;
 
+import ozil.exception.ErrorMessages;
+import ozil.main.Messages;
+import ozil.exception.OzilException;
+import ozil.main.TaskList;
 import ozil.task.EventTask;
 
-public class AddEventTaskCommand extends Command{
+public class AddEventTaskCommand extends Command {
     private String description;
     private String startTime;
     private String endTime;
 
-    public AddEventTaskCommand(String userInput) throws OzilException{
+    public AddEventTaskCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
 
         if (sections[1].trim().startsWith("/from")) {

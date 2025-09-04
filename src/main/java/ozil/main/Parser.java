@@ -1,4 +1,8 @@
-package ozil;
+package ozil.main;
+
+import ozil.command.*;
+import ozil.exception.ErrorMessages;
+import ozil.exception.OzilException;
 
 /**
  * The main handler for user input. It throws some exceptions when user is missing input,

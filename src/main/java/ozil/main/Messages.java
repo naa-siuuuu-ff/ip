@@ -1,4 +1,4 @@
-package ozil;
+package ozil.main;
 
 import ozil.task.Task;
 

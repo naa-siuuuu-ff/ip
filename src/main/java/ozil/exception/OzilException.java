@@ -1,4 +1,4 @@
-package ozil;
+package ozil.exception;
 
 public class OzilException extends Exception{
     public OzilException (String message) {

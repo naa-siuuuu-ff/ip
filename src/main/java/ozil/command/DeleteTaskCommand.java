@@ -1,6 +1,10 @@
-package ozil;
+package ozil.command;
 
-public class DeleteTaskCommand extends Command{
+import ozil.exception.ErrorMessages;
+import ozil.exception.OzilException;
+import ozil.main.TaskList;
+
+public class DeleteTaskCommand extends Command {
     private int taskNumber;
 
     public DeleteTaskCommand(String userInput) throws OzilException {

@@ -1,10 +1,12 @@
-package ozil;
+package ozil.main;
 
+import ozil.exception.ErrorMessages;
+import ozil.exception.OzilException;
 import ozil.task.Task;
 
 import java.util.ArrayList;
 
-class TaskList {
+public class TaskList {
     private ArrayList<Task> tasks;
 
     public TaskList() {

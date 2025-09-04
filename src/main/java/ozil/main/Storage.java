@@ -1,4 +1,4 @@
-package ozil;
+package ozil.main;
 
 public class Storage {
 
