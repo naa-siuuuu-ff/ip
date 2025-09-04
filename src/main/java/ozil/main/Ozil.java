@@ -12,12 +12,15 @@ import java.util.Scanner;
 */
 public class Ozil {
     private TaskList tasks;
+    private Storage storage
+    private static final String filePath = "data/tasks.txt";
 
     /**
      * Constructor to create a new instance of the chatbot
      */
     public Ozil() {
         this.tasks = new TaskList();
+        this.storage = new Storage(filePath);
     }
 
     private static void echo(String userinput) {

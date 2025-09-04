@@ -6,8 +6,8 @@ package ozil.task;
 * @param isDone boolean to check whether the task has been done or not
 */
 public class Task {
-    private String description;
-    private boolean isDone;
+    protected String description;
+    protected boolean isDone;
 
     /**
      * Creates a new task.
@@ -39,6 +39,10 @@ public class Task {
     @Override
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
+    }
+
+    public String convertToStorageFormat() {
+        return String.format("X | %d | %s", this.isDone ? 1 : 0, this.description);
     }
 
 }
