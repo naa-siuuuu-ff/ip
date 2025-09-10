@@ -30,7 +30,7 @@ public class Storage {
 
             // create a Scanner using the File as the source
             Scanner s = new Scanner(file);
-            while (s.hasNext()) {
+            while (s.hasNextLine()) {
                 String fileInput = s.nextLine();
                 String[] sections = fileInput.split(" \\| ");
 
@@ -59,7 +59,7 @@ public class Storage {
             s.close();
 
         } catch(FileNotFoundException e){
-            throw new OzilException(ErrorMessages.errorMessage("An error occurred while saving: " +
+            throw new OzilException(ErrorMessages.errorMessage("An error occurred while loading tasks: " +
                     e.getMessage()));
         }
 
@@ -70,7 +70,7 @@ public class Storage {
             try {
                 File file = new File(this.filePath);
                 file.getParentFile().mkdirs();
-                FileWriter fileWriter = new FileWriter(file, true);
+                FileWriter fileWriter = new FileWriter(file, false);
                 for (int i = 1; i <= taskList.getNumberOfTasks(); i++) {
                     fileWriter.append(taskList.getTask(i).convertToStorageFormat());
                     fileWriter.append("\n");

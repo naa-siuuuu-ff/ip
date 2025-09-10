@@ -16,13 +16,13 @@ public class Ozil {
     /**
      * Constructor to create a new instance of the chatbot
      */
-    public Ozil() throws OzilException{
+    public Ozil(){
         this.storage = new Storage(FILEPATH);
 
         try {
             this.tasks = storage.loadStoredTasks();
         } catch (OzilException e) {
-            throw new OzilException(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -36,7 +36,7 @@ public class Ozil {
         Messages.line();
     }
 
-    public void run() throws OzilException {
+    public void run() {
         Scanner scanner = new Scanner(System.in);
 
         Messages.intro();
@@ -49,21 +49,19 @@ public class Ozil {
                 command = Parser.handleInput(input);
                 command.run(this.tasks);
             } catch (OzilException e) {
-                System.out.print(e.getMessage());
+                System.out.println(e.getMessage());
             }
         }
-
-        this.storage.save(this.getTaskList());
-
+        try {
+            this.storage.save(this.getTaskList());
+        } catch (OzilException e) {
+            throw new RuntimeException(e);
+        }
         scanner.close();
     }
 
     public static void main(String[] args) {
-        try {
             Ozil currentOzil = new Ozil();
             currentOzil.run();
-        } catch (OzilException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

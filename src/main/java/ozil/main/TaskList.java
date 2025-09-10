@@ -94,7 +94,7 @@ public class TaskList {
         }
         Task deletedTask = this.getTask(taskNumber);
         this.tasks.remove(taskNumber - 1);
-        Messages.printTaskDeleteMessage(deletedTask, taskNumber);
+        Messages.printTaskDeleteMessage(deletedTask, this.tasks.size());
 
     }
 }
