@@ -9,9 +9,12 @@ import ozil.task.TodoTask;
 
 import java.io.*;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/**
+ * Storage class to save the current tasklist to the hardisk.
+ */
 public class Storage {
     private String filePath;
 

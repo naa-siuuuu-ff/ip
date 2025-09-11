@@ -36,6 +36,9 @@ public class Ozil {
         Messages.line();
     }
 
+    /**
+     * Runs the current instance of the chatbot.
+     */
     public void run() {
         Scanner scanner = new Scanner(System.in);
 

@@ -4,6 +4,9 @@ import ozil.exception.ErrorMessages;
 import ozil.main.Messages;
 import ozil.exception.OzilException;
 
+/**
+ * The command class to handle the exit ccommand.
+ */
 public class TerminatingCommand extends Command {
 
     public TerminatingCommand(String userInput) throws OzilException {

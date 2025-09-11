@@ -51,6 +51,11 @@ public class Messages {
         Messages.line();
     }
 
+    /**
+     * Prints the delete task message
+     * @param task Task that is deleted
+     * @param numberOfTasks Number of current tasks
+     */
     public static void printTaskDeleteMessage(Task task, int numberOfTasks) {
         Messages.line();
         System.out.print("Understood. I have deleted the following task:\n");

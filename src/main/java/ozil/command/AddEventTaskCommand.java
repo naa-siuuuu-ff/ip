@@ -6,6 +6,9 @@ import ozil.exception.OzilException;
 import ozil.main.TaskList;
 import ozil.task.EventTask;
 
+/**
+ * Runs the event task adding command.
+ */
 public class AddEventTaskCommand extends Command {
     private String description;
     private String startTime;

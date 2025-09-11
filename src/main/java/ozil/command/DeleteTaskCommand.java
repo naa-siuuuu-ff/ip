@@ -4,6 +4,9 @@ import ozil.exception.ErrorMessages;
 import ozil.exception.OzilException;
 import ozil.main.TaskList;
 
+/**
+ * Runs the command to delete a task
+ */
 public class DeleteTaskCommand extends Command {
     private int taskNumber;
 
