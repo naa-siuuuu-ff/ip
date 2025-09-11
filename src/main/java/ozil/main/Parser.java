@@ -21,7 +21,6 @@ import java.util.Date;
  * and deals with function calls for the different inputs.
  */
 public class Parser {
-
     private static boolean doesInputStartWith(String input, String command) {
         return input.toLowerCase().startsWith(command);
     }
@@ -49,5 +48,4 @@ public class Parser {
             throw new OzilException(ErrorMessages.nonsenseError());
         }
     }
-
 }

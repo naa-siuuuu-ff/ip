@@ -52,6 +52,7 @@ public class Ozil {
                 System.out.println(e.getMessage());
             }
         }
+
         try {
             this.storage.save(this.getTaskList());
         } catch (OzilException e) {
