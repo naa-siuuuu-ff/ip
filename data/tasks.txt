@@ -1,24 +1,16 @@
-T | 0 | work     
-E | 0 | sleep | 2pm | 3pm     
-T | 0 | work     
-E | 0 | sleep | 2pm | 3pm     
-T | 0 | work      
 E | 0 | sleep | 2pm | 3pm      
-T | 0 | work     
-T | 0 | work      
-T | 0 | work      
 T | 0 | work       
 E | 0 | sleep | 2pm | 3pm       
-E | 0 | hahahah | 10-9-2025 1430 | 1450    
+T | 0 | work      
+E | 0 | sleep | 2pm | 3pm        
 D | 0 | touch people | 22/2/2025 
-E | 0 | sleep | 2pm | 3pm     
-E | 0 | sleep | 2pm | 3pm      
-E | 0 | sleep | 2pm | 3pm      
-T | 0 | work       
 E | 0 | sleep | 2pm | 3pm       
-T | 0 | work      
-T | 0 | work       
-T | 0 | work       
+E | 0 | sleep | 2pm | 3pm       
 T | 0 | work        
 E | 0 | sleep | 2pm | 3pm        
+T | 0 | work       
+T | 0 | work        
+T | 0 | work        
+T | 0 | work         
+E | 0 | sleep | 2pm | 3pm         
 D | 0 | do homework | 22-09-2025 1330 
