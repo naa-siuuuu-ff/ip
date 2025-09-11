@@ -95,7 +95,17 @@ public class TaskList {
         Task deletedTask = this.getTask(taskNumber);
         this.tasks.remove(taskNumber - 1);
         Messages.printTaskDeleteMessage(deletedTask, this.tasks.size());
+    }
 
+    public void findTask(String keywords) {
+        ArrayList<Task> foundTasks = new ArrayList<>();
+        for (int i = 0; i < this.tasks.size(); i++) {
+            Task check = this.tasks.get(i);
+            if (check.toString().contains(keywords)) {
+                foundTasks.add(check);
+            }
+        }
+        String temp = Messages.printSearchedTasks(foundTasks);
     }
 }
 

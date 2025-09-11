@@ -1,5 +1,6 @@
 package ozil.main;
 
+import ozil.command.FindTaskCommand;
 import ozil.command.TerminatingCommand;
 import ozil.command.Command;
 import ozil.command.ListTasksCommand;
@@ -29,7 +30,7 @@ public class Parser {
     public static Command handleInput(String userInput) throws OzilException {
         String input = userInput.trim();
 
-        if (doesInputStartWith(input, "bye")) {
+        if (doesInputStartWith(input, "bye") || doesInputStartWith(input, "exit")) {
             return new TerminatingCommand(input);
         } else if (doesInputStartWith(input, "mark")) {
             return new MarkTaskCommand(input);
@@ -45,6 +46,8 @@ public class Parser {
             return new AddEventTaskCommand(input);
         } else if (doesInputStartWith(input, "list")) {
             return new ListTasksCommand(input);
+        } else if (doesInputStartWith(input, "find")){
+            return new FindTaskCommand(input);
         } else {
             throw new OzilException(ErrorMessages.nonsenseError());
         }

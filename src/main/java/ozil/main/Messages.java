@@ -2,6 +2,8 @@ package ozil.main;
 
 import ozil.task.Task;
 
+import java.util.ArrayList;
+
 /**
 * Static class, containing a lot of the commonly displayed messages in Ozil chatbot
 */
@@ -65,5 +67,20 @@ public class Messages {
      */
     public static void printNumberOfTasks(int numberOfTasks) {
         System.out.println("My boi Benzi, you now have " + numberOfTasks + " tasks.");
+    }
+
+    public static String printSearchedTasks(ArrayList<Task> foundTasks) {
+        if (foundTasks.isEmpty()) {
+            System.out.print("Sorry bro, I could not find any related tasks.");
+            return "Oops";
+        }
+        int taskNum = 1;
+        String res = "Here are the matching tasks in your list:\n";
+        for (Task task: foundTasks) {
+            res += taskNum + "." + task.toString() + "\n";
+            taskNum++;
+        }
+        System.out.print(res);
+        return res;
     }
 }
