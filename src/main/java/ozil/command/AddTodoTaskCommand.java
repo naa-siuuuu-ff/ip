@@ -6,6 +6,9 @@ import ozil.exception.OzilException;
 import ozil.main.TaskList;
 import ozil.task.TodoTask;
 
+/**
+ * Handles the command ot add a todo task
+ */
 public class AddTodoTaskCommand extends Command {
     private String userInputDescription;
 

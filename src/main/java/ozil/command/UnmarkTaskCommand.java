@@ -5,6 +5,9 @@ import ozil.main.Messages;
 import ozil.exception.OzilException;
 import ozil.main.TaskList;
 
+/**
+ * Class that runs the unmark command
+ */
 public class UnmarkTaskCommand extends Command {
     private int taskNumber;
     public UnmarkTaskCommand(String userInput) throws OzilException {
@@ -15,6 +18,11 @@ public class UnmarkTaskCommand extends Command {
         this.taskNumber = Integer.parseInt(sections[1]);
     }
 
+    /**
+     * Runs the unmark task command.
+     * @param tasks Tasklist of current chatbot
+     * @throws OzilException Handles exception
+     */
     @Override
     public void run(TaskList tasks) throws OzilException {
         if (this.taskNumber > tasks.getNumberOfTasks()) {

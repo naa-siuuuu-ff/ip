@@ -5,6 +5,9 @@ import ozil.main.Messages;
 import ozil.exception.OzilException;
 import ozil.main.TaskList;
 
+/**
+ * The command to mark tasks as complete
+ */
 public class MarkTaskCommand extends Command {
     private int taskNumber;
 

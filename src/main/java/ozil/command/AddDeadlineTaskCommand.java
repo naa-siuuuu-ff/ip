@@ -6,6 +6,9 @@ import ozil.exception.OzilException;
 import ozil.main.TaskList;
 import ozil.task.DeadlineTask;
 
+/**
+ * Runs the deadline tast creation command
+ */
 public class AddDeadlineTaskCommand extends Command {
     private String description;
     private String deadline;
