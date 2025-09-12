@@ -1,10 +1,11 @@
 package ozil.command;
 
 import ozil.exception.ErrorMessages;
-import ozil.main.Messages;
 import ozil.exception.OzilException;
+import ozil.main.Messages;
 import ozil.main.TaskList;
 import ozil.task.DeadlineTask;
+
 
 /**
  * Runs the deadline tast creation command
@@ -13,6 +14,11 @@ public class AddDeadlineTaskCommand extends Command {
     private String description;
     private String deadline;
 
+    /**
+     * Constructor for Deadline command.
+     * @param userInput String input by user.
+     * @throws OzilException
+     */
     public AddDeadlineTaskCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
 
@@ -26,7 +32,7 @@ public class AddDeadlineTaskCommand extends Command {
         }
 
         this.description = parts[0].trim();
-        this.deadline = parts[1]. trim();
+        this.deadline = parts[1].trim();
 
     }
 

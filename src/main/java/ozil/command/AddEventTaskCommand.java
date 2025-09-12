@@ -1,8 +1,8 @@
 package ozil.command;
 
 import ozil.exception.ErrorMessages;
-import ozil.main.Messages;
 import ozil.exception.OzilException;
+import ozil.main.Messages;
 import ozil.main.TaskList;
 import ozil.task.EventTask;
 
@@ -27,7 +27,7 @@ public class AddEventTaskCommand extends Command {
         }
 
         this.description = parts[0].trim();
-        this.startTime = parts[1]. trim();
+        this.startTime = parts[1].trim();
         this.endTime = parts[2].trim();
     }
 
