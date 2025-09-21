@@ -72,16 +72,12 @@ public class Task {
 
     public Date setTimeOnDate(Date date, String timeInput) throws ParseException {
         Date timeOnly = parseTime(timeInput);
-
         Calendar time = Calendar.getInstance();
         time.setTime(timeOnly);
-
         Calendar dateInput = Calendar.getInstance();
         dateInput.setTime(date);
-
         dateInput.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
         dateInput.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
-
         return dateInput.getTime();
     }
 

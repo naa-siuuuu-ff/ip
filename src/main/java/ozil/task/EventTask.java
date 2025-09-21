@@ -29,14 +29,14 @@ public class EventTask extends Task {
             this.startTime = parseDateTime(startTime);
             this.endTime = setTimeOnDate(this.startTime, endTime);
         } catch (ParseException e) {
-            System.out.println("Task has been stored, but date time operations cannot be carried out");
-            System.out.println("Events need to be given in the format /from dd-MM-yyyy HHmm /to HHmm");
+            //Task will have no date startTime and endTime
+            //Allows user to still have task but with a string instead of date
         }
     }
 
     @Override
     public String toString() {
-        if (this.startTime != null && this.endTime != null) {
+        if (this.hasDate()) {
             DateFormat timeformatter = new SimpleDateFormat("HHmm");
             DateFormat formatter = new SimpleDateFormat("HHmm");
             if (formatter.format(startTime).equals("0000")) {
