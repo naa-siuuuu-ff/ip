@@ -11,7 +11,13 @@ import ozil.main.TaskList;
 public class MarkTaskCommand extends Command {
     private int taskNumber;
 
+    /**
+     * Constructor for a mark task as done command
+     * @param userInput Input given by user
+     * @throws OzilException
+     */
     public MarkTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());

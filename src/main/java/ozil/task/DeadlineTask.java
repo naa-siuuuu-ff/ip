@@ -47,13 +47,14 @@ public class DeadlineTask extends Task {
             }
             return String.format("[D] %s by: %s ", super.toString(), formatter.format(deadlineTime));
         } else {
+            assert !this.deadline.isEmpty();
             return "[D] " + super.toString() + " by: " + this.deadline;
         }
     }
 
     @Override
     public String convertToStorageFormat() {
-        return String.format("D | %d | %s | %s ", this.isDone ? 1 : 0, this.description
-                , this.deadline);
+        return String.format("D | %d | %s | %s ", this.isDone ? 1 : 0, this.description,
+                this.deadline);
     }
 }

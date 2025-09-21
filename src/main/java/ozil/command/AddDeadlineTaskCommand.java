@@ -20,6 +20,7 @@ public class AddDeadlineTaskCommand extends Command {
      * @throws OzilException
      */
     public AddDeadlineTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
 
         if (sections[1].trim().startsWith("/by")) {
@@ -40,7 +41,7 @@ public class AddDeadlineTaskCommand extends Command {
     public String run(TaskList tasks) {
         DeadlineTask task = new DeadlineTask(this.description, this.deadline);
         tasks.addTaskToList(task);
-        if (task.hasDate()) {
+        if (!task.hasDate()) {
             return "Task has been stored, but date time operations cannot be carried out\n"
                     + "Deadline need to be given in the format /by dd-MM-yyyy HHmm";
         } else {
