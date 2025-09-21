@@ -10,7 +10,14 @@ import ozil.main.TaskList;
  */
 public class UnmarkTaskCommand extends Command {
     private int taskNumber;
+
+    /**
+     * Constructor for Unmark task command
+     * @param userInput Input given by user
+     * @throws OzilException
+     */
     public UnmarkTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());

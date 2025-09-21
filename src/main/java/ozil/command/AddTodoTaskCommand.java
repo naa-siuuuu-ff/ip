@@ -18,6 +18,7 @@ public class AddTodoTaskCommand extends Command {
      * @throws OzilException
      */
     public AddTodoTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException(ErrorMessages.taskDescriptionError("todo"));

@@ -11,6 +11,7 @@ public class DeleteTaskCommand extends Command {
     private int taskNumber;
 
     public DeleteTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.trim().split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
@@ -19,7 +20,7 @@ public class DeleteTaskCommand extends Command {
     }
 
     @Override
-    public String run(TaskList tasks) throws OzilException{
+    public String run(TaskList tasks) throws OzilException {
         if (this.taskNumber > tasks.getNumberOfTasks()) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
         }

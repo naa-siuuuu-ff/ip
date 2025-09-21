@@ -20,6 +20,7 @@ public class AddEventTaskCommand extends Command {
      * @throws OzilException
      */
     public AddEventTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
 
         if (sections[1].trim().startsWith("/from")) {
@@ -40,6 +41,11 @@ public class AddEventTaskCommand extends Command {
     public String run(TaskList tasks) {
         EventTask task = new EventTask(this.description, this.startTime, this.endTime);
         tasks.addTaskToList(task);
-        return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        if (!task.hasDate()) {
+            return "Task has been stored, but date time operations cannot be carried out\n"
+                    + "Events need to be given in the format /from yyyy-MM-dd HHmm /to HHmm";
+        } else {
+            return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        }
     }
 }

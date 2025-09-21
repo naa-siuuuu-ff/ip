@@ -47,6 +47,7 @@ public class EventTask extends Task {
             return "[E]" + super.toString() + "from: " + formatter.format(this.startTime)
                    + "to: " + timeformatter.format(this.endTime);
         }
+        assert !this.start.isEmpty() && !this.end.isEmpty();
         return "[E] " + super.toString() + " from: " + this.start + " to: "
                 + this.end;
     }

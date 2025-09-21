@@ -50,9 +50,16 @@ public class Task {
         return String.format("X | %d | %s", this.isDone ? 1 : 0, this.description);
     }
 
+    public Date parseDate(String input) throws ParseException {
+        String normalizedInput = normalizeInput(input);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        format.setLenient(false);
+        return format.parse(normalizedInput);
+    }
+
     public Date parseDateTime(String input) throws ParseException {
         String normalizedInput = normalizeInput(input);
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HHmm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HHmm");
         format.setLenient(false);
         return format.parse(normalizedInput);
     }

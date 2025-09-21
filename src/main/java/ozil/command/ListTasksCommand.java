@@ -9,6 +9,7 @@ public class ListTasksCommand extends Command {
     private String userInput;
 
     public ListTasksCommand(String userInput) {
+        assert !userInput.isEmpty();
         this.userInput = userInput;
     }
 

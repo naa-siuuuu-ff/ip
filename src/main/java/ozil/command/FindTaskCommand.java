@@ -9,7 +9,13 @@ import ozil.main.TaskList;
 public class FindTaskCommand extends Command {
     private String keywords;
 
+    /**
+     * Constructor for a find task command
+     * @param userInput Input by user
+     * @throws OzilException
+     */
     public FindTaskCommand(String userInput) throws OzilException {
+        assert !userInput.isEmpty();
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
             throw new OzilException("Please input a task to find bro.");
