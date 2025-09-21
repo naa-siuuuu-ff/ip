@@ -48,7 +48,7 @@ public class Messages {
      * @return Deleted task message
      */
     public static String printTaskDeleteMessage(Task task, int numberOfTasks) {
-        return "Understood. I have deleted the following task:" + " " + task.toString()
+        return "Understood. I have deleted the following task:\n" + " " + task.toString()
                 + Messages.printNumberOfTasks(numberOfTasks);
     }
 

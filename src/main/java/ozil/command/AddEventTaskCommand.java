@@ -14,6 +14,11 @@ public class AddEventTaskCommand extends Command {
     private String startTime;
     private String endTime;
 
+    /**
+     * Constructor for event command
+     * @param userInput input by user
+     * @throws OzilException
+     */
     public AddEventTaskCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
 
