@@ -23,8 +23,8 @@ public class DeadlineTask extends Task {
         try {
             this.deadlineTime = parseDateTime(deadline.trim());
         } catch (ParseException e) {
-            //System.out.println("Task has been stored, but date time operations cannot be carried out");
-            //System.out.println("Deadline need to be given in the format /by dd-MM-yyyy HHmm");
+            //Task will have no date deadline
+            //Allows user to still have task but with a string instead of date
         }
     }
 
@@ -38,7 +38,7 @@ public class DeadlineTask extends Task {
 
     @Override
     public String toString() {
-        if (deadlineTime != null) {
+        if (this.hasDate()) {
             DateFormat formatter = new SimpleDateFormat("HHmm");
             if (formatter.format(deadlineTime).equals("0000")) {
                 formatter = new SimpleDateFormat("dd-MM-yyyy");
