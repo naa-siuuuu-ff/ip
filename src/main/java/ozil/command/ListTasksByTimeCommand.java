@@ -5,20 +5,20 @@ import ozil.main.TaskList;
 /**
  * The command to list all current tasks.
  */
-public class ListTasksCommand extends Command {
+public class ListTasksByTimeCommand extends Command {
     private String userInput;
 
     /**
-     * Constructor for list tasks command
+     * Constructor for list tasks by time command
      * @param userInput String input by user
      */
-    public ListTasksCommand(String userInput) {
+    public ListTasksByTimeCommand(String userInput) {
         assert !userInput.isEmpty();
         this.userInput = userInput;
     }
 
     @Override
     public String run(TaskList tasks) {
-        return tasks.printlist();
+        return tasks.listChronological();
     }
 }

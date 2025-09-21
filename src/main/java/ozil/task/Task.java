@@ -6,10 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
-* Task class for basic tasks that can be added by users
-* @param description Description of the task
-* @param isDone boolean to check whether the task has been done or not
-*/
+ * Class for tasks that are added by users in chatbot.
+ */
 public class Task {
     protected String description;
     protected boolean isDone;
@@ -57,6 +55,12 @@ public class Task {
         return format.parse(normalizedInput);
     }
 
+    /**
+     * Converts user input date and time to a Date object
+     * @param input User input
+     * @return Date
+     * @throws ParseException
+     */
     public Date parseDateTime(String input) throws ParseException {
         String normalizedInput = normalizeInput(input);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HHmm");
@@ -64,6 +68,12 @@ public class Task {
         return format.parse(normalizedInput);
     }
 
+    /**
+     * Parses time to a Date
+     * @param input Time in HHmm
+     * @return Date
+     * @throws ParseException
+     */
     public Date parseTime(String input) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("HHmm");
         format.setLenient(false);
@@ -87,6 +97,22 @@ public class Task {
             return input + " 0000";
         }
         return input;
+    }
+
+    /**
+     * Returns whether the task has a proper Date object to store its time or not
+     * @return Boolean
+     */
+    public boolean hasDate() {
+        return false;
+    }
+
+    /**
+     * Return task date or time if any
+     * @return Date object
+     */
+    public Date getTaskDate() {
+        return null;
     }
 
 }

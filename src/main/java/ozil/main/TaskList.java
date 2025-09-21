@@ -1,16 +1,19 @@
 package ozil.main;
 
+import java.util.ArrayList;
+
 import ozil.exception.ErrorMessages;
 import ozil.exception.OzilException;
 import ozil.task.Task;
 
-import java.util.ArrayList;
-
+/**
+ * Class handling the list of tasks in chatbot
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 
     public TaskList() {
-        this.tasks =  new ArrayList<>();
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -51,7 +54,7 @@ public class TaskList {
      * @return The task that is that task number.
      * @throws OzilException If the tasknumber is invalid.
      */
-    public Task getTask(int taskNumber) throws OzilException{
+    public Task getTask(int taskNumber) throws OzilException {
         if (taskNumber > this.tasks.size() || taskNumber < 1) {
             throw new OzilException(ErrorMessages.errorMessage("Your task number is invalid."));
         }
@@ -64,19 +67,29 @@ public class TaskList {
      * @param task New task that is to replace/update the old one.
      * @throws OzilException If the task number is invalid.
      */
-    public void setTask(int taskNumber, Task task) throws OzilException{
+    public void setTask(int taskNumber, Task task) throws OzilException {
         if (taskNumber > this.tasks.size() || taskNumber < 1) {
             throw new OzilException(ErrorMessages.errorMessage("Your task number is invalid."));
         }
         this.tasks.set(taskNumber - 1, task);
     }
 
-    public void markTaskAsDone(int taskNumber) throws OzilException{
+    /**
+     * Marks a task as done
+     * @param taskNumber The number of the task.
+     * @throws OzilException
+     */
+    public void markTaskAsDone(int taskNumber) throws OzilException {
         Task temp = this.getTask(taskNumber);
         temp.markAsDone();
         this.setTask(taskNumber, temp);
     }
 
+    /**
+     * Unmarks a task as incomplete
+     * @param taskNumber Number of the task
+     * @throws OzilException
+     */
     public void markTaskAsUndone(int taskNumber) throws OzilException {
         Task temp = this.getTask(taskNumber);
         temp.markAsUndone();
@@ -97,6 +110,11 @@ public class TaskList {
         return Messages.printTaskDeleteMessage(deletedTask, this.tasks.size());
     }
 
+    /**
+     * Finds task based on description
+     * @param keywords Description input by user
+     * @return
+     */
     public String findTask(String keywords) {
         ArrayList<Task> foundTasks = new ArrayList<>();
         for (int i = 0; i < this.tasks.size(); i++) {
@@ -106,6 +124,35 @@ public class TaskList {
             }
         }
         return Messages.printSearchedTasks(foundTasks);
+    }
+
+    /**
+     * Lists all tasks that have a date chronologically
+     * @return List of tasks in chronological order as a String
+     */
+    public String listChronological() {
+        ArrayList<Task> tasksWithDate = new ArrayList<>();
+        for (int i = 0; i < this.tasks.size(); i++) {
+            if (this.tasks.get(i).hasDate()) {
+                tasksWithDate.add(this.tasks.get(i));
+            }
+        }
+        if (tasksWithDate.isEmpty()) {
+            return "None of your tasks currently have proper dates bro.\n"
+                    + "Events should be event <description> /from <yyyy-MM-dd HHmm> /to <HHmm>\n"
+                    + "Deadlines should be deadline <description> /by <yyyy-MM-dd HHmm>, time is optional";
+        }
+        ArrayList<Task> sortedTasks = sortTasksChronologically(tasksWithDate);
+        String res = "Here are your tasks in chronological order\n";
+        for (int i = 0; i < sortedTasks.size(); i++) {
+            res += (i + 1) + ". " + sortedTasks.get(i).toString() + "\n";
+        }
+        return res;
+    }
+
+    private ArrayList<Task> sortTasksChronologically(ArrayList<Task> tasksWithDate) {
+        tasksWithDate.sort((t1, t2) -> t1.getTaskDate().compareTo(t2.getTaskDate()));
+        return tasksWithDate;
     }
 }
 

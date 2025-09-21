@@ -1,4 +1,11 @@
+
 package ozil.main;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 import ozil.exception.ErrorMessages;
 import ozil.exception.OzilException;
@@ -6,11 +13,6 @@ import ozil.task.DeadlineTask;
 import ozil.task.EventTask;
 import ozil.task.Task;
 import ozil.task.TodoTask;
-
-import java.io.*;
-
-import java.util.Scanner;
-
 
 /**
  * Storage class to save the current tasklist to the hardisk.
@@ -22,6 +24,11 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    /**
+     * Loads the tasks stored in hard disk to the new chatbot instance's tasklist
+     * @return TaskList
+     * @throws OzilException
+     */
     public TaskList loadStoredTasks() throws OzilException {
         TaskList tasks = new TaskList();
         try {
@@ -49,8 +56,8 @@ public class Storage {
                     task = new EventTask(sections[2], sections[3], sections[4]);
                     break;
                 default:
-                    throw new OzilException(ErrorMessages.errorMessage("Unexpected type of task was" +
-                            " found during file parsing"));
+                    throw new OzilException(ErrorMessages.errorMessage("Unexpected type of task was"
+                           + " found during file parsing"));
                 }
 
                 if (Integer.parseInt(sections[1]) == 1) {
@@ -61,27 +68,32 @@ public class Storage {
             }
             s.close();
 
-        } catch(FileNotFoundException e){
-            throw new OzilException(ErrorMessages.errorMessage("An error occurred while loading tasks: " +
-                    e.getMessage()));
+        } catch (FileNotFoundException e) {
+            throw new OzilException(ErrorMessages.errorMessage("An error occurred while loading tasks: "
+                 + e.getMessage()));
         }
 
         return tasks;
     }
 
-        public void save(TaskList taskList) throws OzilException {
-            try {
-                File file = new File(this.filePath);
-                file.getParentFile().mkdirs();
-                FileWriter fileWriter = new FileWriter(file, false);
-                for (int i = 1; i <= taskList.getNumberOfTasks(); i++) {
-                    fileWriter.append(taskList.getTask(i).convertToStorageFormat());
-                    fileWriter.append("\n");
-                }
-                fileWriter.close();
-            } catch (IOException e) {
-                throw new OzilException(ErrorMessages.errorMessage("An error occurred while saving: " +
-                        e.getMessage()));
+    /**
+     * Saves chatbot's tasks into hard disk before closing chatbot
+     * @param taskList Current chatbot's tasklist
+     * @throws OzilException
+     */
+    public void save(TaskList taskList) throws OzilException {
+        try {
+            File file = new File(this.filePath);
+            file.getParentFile().mkdirs();
+            FileWriter fileWriter = new FileWriter(file, false);
+            for (int i = 1; i <= taskList.getNumberOfTasks(); i++) {
+                fileWriter.append(taskList.getTask(i).convertToStorageFormat());
+                fileWriter.append("\n");
             }
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new OzilException(ErrorMessages.errorMessage(
+                    "An error occurred while saving: " + e.getMessage()));
         }
     }
+}

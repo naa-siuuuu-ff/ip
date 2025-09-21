@@ -1,6 +1,7 @@
 package ozil.main;
 
 import ozil.command.FindTaskCommand;
+import ozil.command.ListTasksByTimeCommand;
 import ozil.command.TerminatingCommand;
 import ozil.command.Command;
 import ozil.command.ListTasksCommand;
@@ -45,6 +46,8 @@ public class Parser {
             return new AddEventTaskCommand(input);
         } else if (doesInputStartWith(input, "list")) {
             return new ListTasksCommand(input);
+        } else if (doesInputStartWith(input, "latest")) {
+            return new ListTasksByTimeCommand(input);
         } else if (doesInputStartWith(input, "find")) {
             return new FindTaskCommand(input);
         } else {

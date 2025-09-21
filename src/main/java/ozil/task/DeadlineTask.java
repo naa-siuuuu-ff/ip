@@ -28,10 +28,7 @@ public class DeadlineTask extends Task {
         }
     }
 
-    /**
-     * Check to see if the task successfully has a proper date added
-     * @return boolean showing if it has a proper date
-     */
+    @Override
     public boolean hasDate() {
         return deadlineTime != null;
     }
@@ -56,5 +53,10 @@ public class DeadlineTask extends Task {
     public String convertToStorageFormat() {
         return String.format("D | %d | %s | %s ", this.isDone ? 1 : 0, this.description,
                 this.deadline);
+    }
+
+    @Override
+    public Date getTaskDate() {
+        return this.deadlineTime;
     }
 }

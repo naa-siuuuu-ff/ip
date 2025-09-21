@@ -59,6 +59,7 @@ public class MainWindow extends AnchorPane {
                     DialogBox.getOzilDialog(Messages.outro(), ozilImage)
             );
             delay.play();
+            userInput.clear();
         } else {
             dialogContainer.getChildren().addAll(
                     DialogBox.getUserDialog(input, userImage),

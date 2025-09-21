@@ -10,10 +10,9 @@ public class Messages {
     /**
      * Prints intro message of chatbot.
      */
-    public static void intro() {
-        System.out.println("Hello! I'm Ozil, your personal assist machine!"
-                + "How may I assist you?"
-        );
+    public static String intro() {
+        return "Hello! I'm Ozil, your personal assist machine! How may I assist you?\n"
+                + "Here are the ";
     }
 
     /**

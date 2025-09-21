@@ -44,14 +44,15 @@ public class EventTask extends Task {
             } else {
                 formatter = new SimpleDateFormat("dd-MM-yyyy HHmm");
             }
-            return "[E]" + super.toString() + "from: " + formatter.format(this.startTime)
-                   + "to: " + timeformatter.format(this.endTime);
+            return "[E]" + super.toString() + " from: " + formatter.format(this.startTime)
+                   + " to: " + timeformatter.format(this.endTime);
         }
         assert !this.start.isEmpty() && !this.end.isEmpty();
         return "[E] " + super.toString() + " from: " + this.start + " to: "
                 + this.end;
     }
 
+    @Override
     public boolean hasDate() {
         return startTime != null && endTime != null;
     }
@@ -60,5 +61,10 @@ public class EventTask extends Task {
     public String convertToStorageFormat() {
         return String.format("E | %d | %s | %s | %s ", this.isDone ? 1 : 0, this.description,
            this.start, this.end);
+    }
+
+    @Override
+    public Date getTaskDate() {
+        return this.startTime;
     }
 }
