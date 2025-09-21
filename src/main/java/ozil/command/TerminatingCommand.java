@@ -5,15 +5,15 @@ import ozil.main.Messages;
 import ozil.exception.OzilException;
 
 /**
- * The command class to handle the exit ccommand.
+ * The command class to handle the exit command.
  */
 public class TerminatingCommand extends Command {
 
     public TerminatingCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length > 1) {
-            throw new OzilException(ErrorMessages.errorMessage("You cannot tell me to go, \n" +
-                "then still tell me other things :(."));
+            throw new OzilException(ErrorMessages.errorMessage("You cannot tell me to go, \n"
+                    + "then still tell me other things :(."));
         }
         Messages.outro();
     }

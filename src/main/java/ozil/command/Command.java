@@ -7,7 +7,8 @@ import ozil.main.TaskList;
  * The parent class of all commands.
  */
 public class Command {
-    public void run(TaskList tasks) throws OzilException {
+    public String run(TaskList tasks) throws OzilException {
+        return "";
     }
 
     public boolean isTerminatingCommand() {

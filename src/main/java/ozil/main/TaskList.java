@@ -13,19 +13,19 @@ public class TaskList {
         this.tasks =  new ArrayList<>();
     }
 
-    public void printlist() {
+    /**
+     * Prints out current tasklist
+     * @return String of all tasks
+     */
+    public String printlist() {
         if (this.tasks.isEmpty()) {
-            Messages.line();
-            System.out.println("You have no tasks. You are a free agent :)");
-            Messages.line();
+            return "You have no tasks. You are a free agent :)";
         } else {
-            String res = "____________________________________________________________\n"
-                    + "Here are the tasks in your list:\n";
+            String res = "Here are the tasks in your list:\n";
             for (int i = 0; i < this.tasks.size(); i++) {
                 res += (i + 1) + ". " + this.tasks.get(i).toString() + "\n";
             }
-            res += "____________________________________________________________\n";
-            System.out.println(res);
+            return res;
         }
     }
 
@@ -88,16 +88,16 @@ public class TaskList {
      * @param taskNumber The number of that task that is to be deleted.
      * @throws OzilException If the task number is invalid.
      */
-    public void deleteTask(int taskNumber) throws OzilException {
+    public String deleteTask(int taskNumber) throws OzilException {
         if (taskNumber > this.tasks.size() || taskNumber < 1) {
             throw new OzilException(ErrorMessages.errorMessage("Your task number is invalid."));
         }
         Task deletedTask = this.getTask(taskNumber);
         this.tasks.remove(taskNumber - 1);
-        Messages.printTaskDeleteMessage(deletedTask, this.tasks.size());
+        return Messages.printTaskDeleteMessage(deletedTask, this.tasks.size());
     }
 
-    public void findTask(String keywords) {
+    public String findTask(String keywords) {
         ArrayList<Task> foundTasks = new ArrayList<>();
         for (int i = 0; i < this.tasks.size(); i++) {
             Task check = this.tasks.get(i);
@@ -105,7 +105,7 @@ public class TaskList {
                 foundTasks.add(check);
             }
         }
-        String temp = Messages.printSearchedTasks(foundTasks);
+        return Messages.printSearchedTasks(foundTasks);
     }
 }
 

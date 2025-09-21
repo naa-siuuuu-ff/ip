@@ -13,7 +13,7 @@ public class ListTasksCommand extends Command {
     }
 
     @Override
-    public void run(TaskList tasks) {
-        tasks.printlist();
+    public String run(TaskList tasks) {
+        return tasks.printlist();
     }
 }

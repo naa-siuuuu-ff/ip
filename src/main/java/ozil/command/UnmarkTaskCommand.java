@@ -24,14 +24,12 @@ public class UnmarkTaskCommand extends Command {
      * @throws OzilException Handles exception
      */
     @Override
-    public void run(TaskList tasks) throws OzilException {
+    public String run(TaskList tasks) throws OzilException {
         if (this.taskNumber > tasks.getNumberOfTasks()) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
         }
         tasks.markTaskAsUndone(this.taskNumber);
-        Messages.line();
-        System.out.println("Ok! I have marked this task as completed:\n");
-        System.out.println(tasks.getTask(this.taskNumber).toString());
-        Messages.line();
+        return "Ok! I have marked this task as completed:\n"
+                + tasks.getTask(this.taskNumber).toString();
     }
 }

@@ -19,10 +19,10 @@ public class DeleteTaskCommand extends Command {
     }
 
     @Override
-    public void run(TaskList tasks) throws OzilException{
+    public String run(TaskList tasks) throws OzilException{
         if (this.taskNumber > tasks.getNumberOfTasks()) {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
         }
-        tasks.deleteTask(this.taskNumber);
+        return tasks.deleteTask(this.taskNumber);
     }
 }

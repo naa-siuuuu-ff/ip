@@ -6,7 +6,7 @@ import ozil.main.TaskList;
 /**
  * Handles the command to find a task.
  */
-public class FindTaskCommand extends Command{
+public class FindTaskCommand extends Command {
     private String keywords;
 
     public FindTaskCommand(String userInput) throws OzilException {
@@ -18,7 +18,7 @@ public class FindTaskCommand extends Command{
     }
 
     @Override
-    public void run(TaskList tasks) {
-        tasks.findTask(this.keywords);
+    public String run(TaskList tasks) {
+        return tasks.findTask(this.keywords);
     }
 }

@@ -32,9 +32,9 @@ public class AddEventTaskCommand extends Command {
     }
 
     @Override
-    public void run(TaskList tasks) {
+    public String run(TaskList tasks) {
         EventTask task = new EventTask(this.description, this.startTime, this.endTime);
         tasks.addTaskToList(task);
-        Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
     }
 }

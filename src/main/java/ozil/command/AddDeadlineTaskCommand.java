@@ -37,10 +37,10 @@ public class AddDeadlineTaskCommand extends Command {
     }
 
     @Override
-    public void run(TaskList tasks) {
+    public String run(TaskList tasks) {
         DeadlineTask task = new DeadlineTask(this.description, this.deadline);
         tasks.addTaskToList(task);
-        Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
     }
 
 }

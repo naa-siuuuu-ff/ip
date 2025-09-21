@@ -5,25 +5,12 @@ package ozil.exception;
  */
 public class ErrorMessages {
     /**
-     * Returns error logo.
-     * @return Returns error logo
-     */
-    public static String errorLogo() {
-        return " ___ _ _ \n" +
-                "|__ \\ | |\n" +
-                "  / / | |\n" +
-                " |_||_|_|\n" +
-                " (_)(_|_)\n";
-    }
-
-    /**
      * Returns an error message with the error logo.
      * @param errorMessage Message telling the user their mistake.
      * @return
      */
     public static String errorMessage(String errorMessage) {
-        return ErrorMessages.errorLogo() + "\n" + ErrorMessages.line() +
-                "\n" + errorMessage;
+        return errorMessage;
 
     }
 
@@ -36,18 +23,14 @@ public class ErrorMessages {
      * @return
      */
     public static String wrongMarkNumber() {
-        return ErrorMessages.line() + ErrorMessages.errorLogo() +
-                "You need to select a valid task number bro. \n" +
-                ErrorMessages.line();
+        return "You need to select a valid task number bro.\n";
     }
 
     /**
      * Error message when user does not give any instructions
      */
     public static String nonsenseError() {
-        return ErrorMessages.line() + ErrorMessages.errorLogo() +
-                "What's that? No idea what you mean, cannot help you there mate\n" +
-                ErrorMessages.line();
+        return "What's that? No idea what you mean, cannot help you there mate\n";
     }
 
     /**
@@ -55,9 +38,7 @@ public class ErrorMessages {
      * @param tasktype The type of task the user wanted to do
      */
     public static String taskDescriptionError(String tasktype) {
-        return ErrorMessages.line() + ErrorMessages.errorLogo() +
-                "Your description of a " + tasktype + " cannot be blank :(\n" +
-                ErrorMessages.line();
+        return "Your description of a " + tasktype + " cannot be blank :(\n";
     }
 
     /**
@@ -65,9 +46,7 @@ public class ErrorMessages {
      * @return Error message
      */
     public static String eventTaskTimeError() {
-        return ErrorMessages.line() + ErrorMessages.errorLogo() +
-                "Your event must have a time format /from <start-time> /to <end-time>\n" +
-                ErrorMessages.line();
+        return "Your event must have a time format /from <start-time> /to <end-time>\n";
     }
 
     /**
@@ -75,10 +54,6 @@ public class ErrorMessages {
      * @return Error message
      */
     public static String deadlineTaskTimeError() {
-        return ErrorMessages.line() + ErrorMessages.errorLogo() +
-                "Your deadline must have a time format /by <deadline>. \n" +
-                ErrorMessages.line();
+        return "Your deadline must have a time format /by <deadline>. \n";
     }
-
-
 }

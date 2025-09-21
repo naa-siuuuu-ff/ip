@@ -6,11 +6,12 @@ plugins {
 }
 
 application {
-    mainClass.set("ozil.main.Ozil")
+    mainClass.set("main.ozil.Launcher")
 }
 
 repositories {
     mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {

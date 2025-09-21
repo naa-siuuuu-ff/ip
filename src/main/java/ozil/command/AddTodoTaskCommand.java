@@ -21,9 +21,9 @@ public class AddTodoTaskCommand extends Command {
     }
 
     @Override
-    public void run(TaskList tasks) {
+    public String run(TaskList tasks) {
         TodoTask task = new TodoTask(this.userInputDescription);
         tasks.addTaskToList(task);
-        Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
     }
 }

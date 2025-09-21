@@ -45,7 +45,7 @@ public class Parser {
             return new AddEventTaskCommand(input);
         } else if (doesInputStartWith(input, "list")) {
             return new ListTasksCommand(input);
-        } else if (doesInputStartWith(input, "find")){
+        } else if (doesInputStartWith(input, "find")) {
             return new FindTaskCommand(input);
         } else {
             throw new OzilException(ErrorMessages.nonsenseError());
