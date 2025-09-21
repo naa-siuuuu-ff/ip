@@ -1,7 +1,0 @@
-T | 0 | work
-E | 0 | sleep | 2pm | 3pm            
-T | 0 | talk to Max   
-D | 0 | do IP | 20-09-2025 1800 
-D | 0 | ip | tomorrow 
-D | 0 | iP | 22/09/2025 2359
-D | 0 | go to NUS | tomorrow
