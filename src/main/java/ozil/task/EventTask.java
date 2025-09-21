@@ -6,10 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
-* Events that are also an extension of tasks
-* @param startTime The Starting time of the event.
-* @param endTime The ending time of the event.
-*/
+ * Events that are extensions of tasks
+ */
 public class EventTask extends Task {
     private String start;
     private String end;
@@ -46,16 +44,20 @@ public class EventTask extends Task {
             } else {
                 formatter = new SimpleDateFormat("dd-MM-yyyy HHmm");
             }
-            return "[E]" + super.toString() + "from: " + formatter.format(this.startTime) +
-                    "to: " + timeformatter.format(this.endTime);
+            return "[E]" + super.toString() + "from: " + formatter.format(this.startTime)
+                   + "to: " + timeformatter.format(this.endTime);
         }
         return "[E] " + super.toString() + " from: " + this.start + " to: "
                 + this.end;
     }
 
+    public boolean hasDate() {
+        return startTime != null && endTime != null;
+    }
+
     @Override
     public String convertToStorageFormat() {
-       return String.format("E | %d | %s | %s | %s ", this.isDone ? 1 : 0, this.description
-           , this.start, this.end);
+        return String.format("E | %d | %s | %s | %s ", this.isDone ? 1 : 0, this.description,
+           this.start, this.end);
     }
 }

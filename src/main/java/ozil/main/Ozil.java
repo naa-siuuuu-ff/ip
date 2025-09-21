@@ -47,7 +47,7 @@ public class Ozil {
                 } catch (OzilException e) {
                     throw new RuntimeException(e);
                 }
-                return Messages.outro();
+                return "bye";
             } else {
                 return command.run(this.tasks);
             }
@@ -55,36 +55,4 @@ public class Ozil {
             return e.getMessage();
         }
     }
-//    /**
-//     * Runs the current instance of the chatbot.
-//     */
-//    public void run() {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        Messages.intro();
-//
-//        Command command = new Command();
-//
-//        while (!command.isTerminatingCommand()) {
-//            try {
-//                String input = scanner.nextLine().trim();
-//                command = Parser.handleInput(input);
-//                command.run(this.tasks);
-//            } catch (OzilException e) {
-//                System.out.println(e.getMessage());
-//            }
-//        }
-//
-//        try {
-//            this.storage.save(this.getTaskList());
-//        } catch (OzilException e) {
-//            throw new RuntimeException(e);
-//        }
-//        scanner.close();
-//    }
-//
-//    public static void main(String[] args) {
-//        Ozil currentOzil = new Ozil();
-//        currentOzil.run();
-//    }
 }

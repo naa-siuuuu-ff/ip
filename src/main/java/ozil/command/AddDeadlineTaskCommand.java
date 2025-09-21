@@ -40,7 +40,12 @@ public class AddDeadlineTaskCommand extends Command {
     public String run(TaskList tasks) {
         DeadlineTask task = new DeadlineTask(this.description, this.deadline);
         tasks.addTaskToList(task);
-        return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        if (task.hasDate()) {
+            return "Task has been stored, but date time operations cannot be carried out\n"
+                    + "Deadline need to be given in the format /by dd-MM-yyyy HHmm";
+        } else {
+            return Messages.printTaskAddMessage(task, tasks.getNumberOfTasks());
+        }
     }
 
 }

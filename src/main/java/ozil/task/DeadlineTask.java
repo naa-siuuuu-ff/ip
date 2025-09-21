@@ -20,12 +20,20 @@ public class DeadlineTask extends Task {
     public DeadlineTask(String description, String deadline) {
         super(description);
         this.deadline = deadline.trim();
-        try{
+        try {
             this.deadlineTime = parseDateTime(deadline.trim());
         } catch (ParseException e) {
-            System.out.println("Task has been stored, but date time operations cannot be carried out");
-            System.out.println("Deadline need to be given in the format /by dd-MM-yyyy HHmm");
+            //System.out.println("Task has been stored, but date time operations cannot be carried out");
+            //System.out.println("Deadline need to be given in the format /by dd-MM-yyyy HHmm");
         }
+    }
+
+    /**
+     * Check to see if the task successfully has a proper date added
+     * @return boolean showing if it has a proper date
+     */
+    public boolean hasDate() {
+        return deadlineTime != null;
     }
 
     @Override

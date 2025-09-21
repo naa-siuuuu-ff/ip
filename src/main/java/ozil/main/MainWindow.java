@@ -1,5 +1,7 @@
 package ozil.main;
 
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -7,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
+
 /**
  * Controller for the main GUI.
  */
@@ -37,24 +41,38 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
+     * Creates two dialog boxes, one echoing user input and the other containing Duke's reply
+     * and then appends them to
      * the dialog container. Clears the user input after processing.
      */
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
         String response = ozil.getResponse(input);
-        dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage),
-                DialogBox.getOzilDialog(response, ozilImage)
-        );
-        userInput.clear();
+        if (response.equals("bye")) {
+            PauseTransition delay = new PauseTransition(Duration.seconds(2));
+            delay.setOnFinished(event -> {
+                Platform.exit();
+            });
+            dialogContainer.getChildren().addAll(
+                    DialogBox.getUserDialog(input, userImage),
+                    DialogBox.getOzilDialog(Messages.outro(), ozilImage)
+            );
+            delay.play();
+        } else {
+            dialogContainer.getChildren().addAll(
+                    DialogBox.getUserDialog(input, userImage),
+                    DialogBox.getOzilDialog(response, ozilImage)
+            );
+            userInput.clear();
+        }
     }
 
     @FXML
     private void showWelcomeMessage() {
         dialogContainer.getChildren().addAll(
-                DialogBox.getOzilDialog("Hello! I'm Ozil, your personal assist machine!\n How may I assist you?", ozilImage)
+                DialogBox.getOzilDialog("Hello! I'm Ozil, your personal assist machine!\n"
+                       + "How may I assist you?", ozilImage)
         );
     }
 }

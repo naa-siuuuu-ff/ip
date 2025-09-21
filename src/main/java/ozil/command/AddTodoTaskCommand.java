@@ -12,6 +12,11 @@ import ozil.task.TodoTask;
 public class AddTodoTaskCommand extends Command {
     private String userInputDescription;
 
+    /**
+     * Constructor for todo command
+     * @param userInput input by user
+     * @throws OzilException
+     */
     public AddTodoTaskCommand(String userInput) throws OzilException {
         String[] sections = userInput.split("\\s+", 2);
         if (sections.length < 2) {
