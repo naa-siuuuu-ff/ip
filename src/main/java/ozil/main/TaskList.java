@@ -116,11 +116,11 @@ public class TaskList {
      * @return
      */
     public String findTask(String keywords) {
-        keywords = keywords;
+        keywords = keywords.toLowerCase();
         ArrayList<Task> foundTasks = new ArrayList<>();
         for (int i = 0; i < this.tasks.size(); i++) {
             Task check = this.tasks.get(i);
-            if (check.toString().contains(keywords)) {
+            if (check.toString().toLowerCase().contains(keywords)) {
                 foundTasks.add(check);
             }
         }
