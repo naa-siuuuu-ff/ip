@@ -17,3 +17,6 @@ bin/
 text-ui-test/EXPECTED-UNIX.TXT
 
 data/tasks.txt
+
+hs_err_pid*
+replay_pid*
