@@ -14,10 +14,6 @@ public class ErrorMessages {
 
     }
 
-    private static String line() {
-        return "____________________________________________________________\n";
-    }
-
     /**
      * Error message for when selected task does not exist
      * @return
