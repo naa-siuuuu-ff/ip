@@ -1,22 +1,19 @@
+
 package ozil.main;
 
+import ozil.command.AddDeadlineTaskCommand;
+import ozil.command.AddEventTaskCommand;
+import ozil.command.AddTodoTaskCommand;
+import ozil.command.Command;
+import ozil.command.DeleteTaskCommand;
 import ozil.command.FindTaskCommand;
 import ozil.command.ListTasksByTimeCommand;
-import ozil.command.TerminatingCommand;
-import ozil.command.Command;
 import ozil.command.ListTasksCommand;
-import ozil.command.DeleteTaskCommand;
-import ozil.command.UnmarkTaskCommand;
-import ozil.command.AddEventTaskCommand;
-import ozil.command.AddDeadlineTaskCommand;
-import ozil.command.AddTodoTaskCommand;
 import ozil.command.MarkTaskCommand;
+import ozil.command.TerminatingCommand;
+import ozil.command.UnmarkTaskCommand;
 import ozil.exception.ErrorMessages;
 import ozil.exception.OzilException;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * The main handler for user input. It throws some exceptions when user is missing input,
@@ -27,6 +24,12 @@ public class Parser {
         return input.toLowerCase().startsWith(command);
     }
 
+    /**
+     * Handles input given by user
+     * @param userInput input given by user
+     * @return A command that can be run to do the action the user wants
+     * @throws OzilException
+     */
     public static Command handleInput(String userInput) throws OzilException {
         String input = userInput.trim();
 

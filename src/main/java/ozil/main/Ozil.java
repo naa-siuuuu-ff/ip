@@ -59,7 +59,7 @@ public class Ozil {
             }
         } catch (OzilException e) {
             return e.getMessage();
-        } catch (Exception e) {
+        } catch (Exception e) { //suggested by DeepSeek
             return e.getMessage();
         }
     }
