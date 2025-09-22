@@ -11,16 +11,17 @@ public class Messages {
      * Prints intro message of chatbot.
      */
     public static String intro() {
-        return "Hello! I'm Ozil, your personal assist machine! How may I assist you?\n"
+        return "Hello! I'm Ozil, your personal assist machine! How may I assist you? "
                 + "Here are the commands you can run:\n"
                 + "todo <description>: creates a todo task\n"
                 + "deadline <description> /by <YYYY-MM-DD HHmm>: creates a deadline task, time is optional\n"
-                + "event <description> /from <YYYY-MM-DD HHmm> to <HHmm>\n"
+                + "event <description> /from <YYYY-MM-DD HHmm> /to <HHmm>\n"
                 + "list :lists all tasks\n"
                 + "latest :lists all tasks with proper Datetimes chronologically\n"
                 + "mark <tasknumber>: marks a task as complete\n"
                 + "unmark <tasknumber>: unmarks a task\n"
                 + "delete <tasknumber>: deletes the task\n"
+                + "find <task description keywords>: finds task with matching description\n"
                 + "bye : exits the club with Ozil";
     }
 

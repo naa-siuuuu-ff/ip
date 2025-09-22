@@ -36,7 +36,7 @@ public class UnmarkTaskCommand extends Command {
             throw new OzilException(ErrorMessages.wrongMarkNumber());
         }
         tasks.markTaskAsUndone(this.taskNumber);
-        return "Ok! I have marked this task as completed:\n"
+        return "Ok! I have marked this task as has not been completed:\n"
                 + tasks.getTask(this.taskNumber).toString();
     }
 }
