@@ -34,7 +34,7 @@ to run the application.
 Adds a basic todo task with no dates attached\
 Format: **`todo <description>`**\
 Example: ** todo run`**\
-Outcome:
+Outcome:\
 ![](images/todo.png)
 
 ## Adding events
@@ -49,31 +49,31 @@ Adds a team meeting event that starts at 23 Sept 2pm and ends at 3pm on the same
 Adds a deadline with a deadline date time.\
 Format: **`deadline <description> /by <YYYY-MM-DD HHmm>`**\
 Example: **`deadline Submit report /by 2025-09-24 1800`**\
-Outcome:
+Outcome:\
 ![](images/deadline.png)
 
 ## Listing all tasks
 Lists all tasks.\
 Format:**`list`**\
-Outcome:
+Outcome:\
 ![](images/list.png)
 
 ## Marking and unmarking tasks as complete/incomplete, and deleting tasks
 Mark or unmark a task as complete or incomplete respectively, or delete tasks.
 Format: **`mark <tasknumber>`**, **`unmark <tasknumber>`** or  **`delete <tasknumber>`**\
 Example: **`mark 2`**, **`unmark 2`**, and **`delete 2`**\
-Outcome:
+Outcome:\
 ![](images/markunmarkdelete.png)
 
 ## Find task
 Find tasks based on their description.\
 Format: **`find <task description keywords>`**
 Example: **`find chapter`**\
-Outcome:
+Outcome:\
 ![](images/find.png)
 
 ## Get latest tasks in chronological order
 Get all tasks that have properly added dates in chronological order\
 Format: **`latest`**\
-Outcome:
+Outcome:\
 ![](images/latest.png)
