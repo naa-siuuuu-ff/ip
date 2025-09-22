@@ -23,6 +23,9 @@ public class AddDeadlineTaskCommand extends Command {
         assert !userInput.isEmpty();
         //Splitting of input done with help of ChatGPT
         String[] sections = userInput.split("\\s+", 2);
+        if (sections.length < 2) {
+            throw new OzilException(ErrorMessages.taskDescriptionError("deadline"));
+        }
 
         if (sections[1].trim().startsWith("/by")) {
             throw new OzilException(ErrorMessages.taskDescriptionError("deadline"));

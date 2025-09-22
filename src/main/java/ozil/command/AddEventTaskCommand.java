@@ -24,6 +24,10 @@ public class AddEventTaskCommand extends Command {
         //Splitting of input done with help of ChatGPT
         String[] sections = userInput.split("\\s+", 2);
 
+        if (sections.length < 2) {
+            throw new OzilException(ErrorMessages.taskDescriptionError("event"));
+        }
+
         if (sections[1].trim().startsWith("/from")) {
             throw new OzilException(ErrorMessages.taskDescriptionError("event"));
         }
