@@ -67,7 +67,6 @@ public class Messages {
      */
     public static String printSearchedTasks(ArrayList<Task> foundTasks) {
         if (foundTasks.isEmpty()) {
-            System.out.print("Sorry bro, I could not find any related tasks.");
             return "Sorry bro, I could not find any related tasks.";
         }
         int taskNum = 1;
@@ -76,7 +75,6 @@ public class Messages {
             res += taskNum + "." + task.toString() + "\n";
             taskNum++;
         }
-        System.out.print(res);
         return res;
     }
 }
