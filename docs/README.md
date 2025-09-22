@@ -10,8 +10,8 @@
 
 ## Quick Start ##
 1. Ensure you have Java 17 installed in your Computer.\
-Mac users need to ensure they have the precise JDK version prescribed [here](https://github.com/se-edu/addressbook-level3/releases).
-2. Download the ```.jar``` file.
+Mac users need to ensure they have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+2. Download the ```.jar``` file from [here](https://github.com/naa-siuuuu-ff/ip/releases).
 3. Open a command terminal, ```cd``` into the folder your jar file is in, and use ```java -jar ozil-chatbot.jar```
 to run the application.
 4. The opening page should look like this.
